@@ -1,4 +1,6 @@
 :root{
+	/* brand colors */
+	--color-provincial-pink: #fff4f2;
 	/* coloers */
 	--color-primary: #f76c5e;
 	--color-primary-hilghlight: #f68e5f;
@@ -11,10 +13,10 @@
 	--bacground-primary: #f2f4f9;
 	/* font-size */
 	--font-size-base: 10px;
-	--font-size-sm: 1.2rem;
-	--font-size-md: 1.6rem;
-	--font-size-lg: 2.5rem;
-	--font-size-xl: 3rem;
+	--font-size-sm: 1.8rem;
+	--font-size-md: 2.2rem;
+	--font-size-lg: 3.5rem;
+	--font-size-xl: 4.3rem;
 }
 
 html,
@@ -22,6 +24,12 @@ body{
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	font-size: var(--font-size-base);
+}
+
+h1, h2, h3 , h4, h5, h5{
+	font-family: 'Rubik', sans-serif;
+	line-height: 1.125;
 }
 
 *{
@@ -30,8 +38,9 @@ body{
 
 body{
 	background-color: var(--bacground-primary);
-	font-size: var(--font-size-base);
+	font-size: var(--font-size-md);
 	color: var(--color-font-base);
+	font-family: 'Karla', sans-serif;
 }
 
 .u-button{
@@ -39,9 +48,35 @@ body{
 	border: 1px solid transparent;
 	background-color: var(--color-primary);
 	color: var(--color-font-base-inverte);
-	font-size: var(--font-size-md);
+	font-size: var(--font-size-sm);
 	text-transform: uppercase;
 	cursor: pointer;
+	font-weight: 600;
+	max-width: 300px;
+	width: 100%;
+}
+
+.u-sections{
+	padding: 20px 30px;
+	overflow: hidden;
+}
+
+.container{
+	max-width: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 0 auto;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.container.is-short{
+	min-height: auto;
+}
+
+.container.is-column{
+	flex-direction: column;
 }
 
 .hero{
@@ -49,16 +84,6 @@ body{
 	background-size: 850px;
 	background-position: right 50px;
 	background-repeat: no-repeat;
-	padding: 20px 30px;
-}
-
-.hero .container{
-	max-width: 800px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	margin: 0 auto;
-	height: 100vh;
 }
 
 .hero-content{
@@ -68,10 +93,13 @@ body{
 .hero-content p{
 	color: var(--color-font-base-hightlight);
 	font-size: var(--font-size-md);
+	margin: 20px 0;
 }
 
 .title{
 	font-size: var(--font-size-xl);
+	margin-right: 40px;
+	margin-bottom: 15px;
 }
 
 .title span{
@@ -79,5 +107,37 @@ body{
 }
 
 .title strong{
+	display: inline-block;
 	font-size: var(--font-size-lg);
+	margin-top: 20px;
+}
+
+@media(max-width: 600px){
+	:root{
+		--font-size-base: 13px
+	}
+	.hero {
+		background: none;
+	}
+	.u-button{
+		width: 100%;
+	}
+}
+
+.biography{
+	background-color: var(--color-provincial-pink);
+}
+
+.biography .container{
+	justify-content: space-around;
+}
+
+.biography-titles{
+	margin-right: 40px;
+}
+
+@media(max-width: 600px){
+	.biography .container{
+		flex-direction: column;
+	}
 }
