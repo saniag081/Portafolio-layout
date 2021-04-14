@@ -1,6 +1,11 @@
 :root{
 	/* brand colors */
 	--color-provincial-pink: #fff4f2;
+
+	/* Base colors */
+	--colo-white: #fff;
+	--colo-black: #000;
+
 	/* coloers */
 	--color-primary: #f76c5e;
 	--color-primary-hilghlight: #f68e5f;
@@ -13,12 +18,13 @@
 	--bacground-primary: #f2f4f9;
 	/* font-size */
 	--font-size-base: 10px;
-	--font-size-sm: 1.8rem;
-	--font-size-md: 2.2rem;
-	--font-size-lg: 3.5rem;
-	--font-size-xl: 4.3rem;
+  --font-size-xs: 1.2rem;
+  --font-size-sm: 1.8rem;
+  --font-size-md: 2.2rem;
+  --font-size-lg: 3.5rem;
+  --font-size-xl: 4.5rem;
 }
-
+/* html elements */
 html,
 body{
 	height: 100%;
@@ -38,11 +44,17 @@ h1, h2, h3 , h4, h5, h5{
 
 body{
 	background-color: var(--bacground-primary);
-	font-size: var(--font-size-md);
 	color: var(--color-font-base);
 	font-family: 'Karla', sans-serif;
 }
 
+p{
+	color: var(--color-font-base-hightlight);
+	font-size: var(--font-size-md);
+	max-width: 20px 0;
+}
+
+/* utils */
 .u-button{
 	padding: 20px 30px;
 	border: 1px solid transparent;
@@ -79,26 +91,13 @@ body{
 	flex-direction: column;
 }
 
-.hero{
-	background-image: url(../assets/images/photo.png);
-	background-size: 850px;
-	background-position: right 50px;
-	background-repeat: no-repeat;
-}
-
-.hero-content{
-	width: 100%;
-}
-
-.hero-content p{
-	color: var(--color-font-base-hightlight);
-	font-size: var(--font-size-md);
-	margin: 20px 0;
-}
-
 .title{
 	font-size: var(--font-size-xl);
-	margin-right: 40px;
+	margin-bottom: 15px;
+}
+
+.subtitle{
+	font-size: var(--font-size-sm);
 	margin-bottom: 15px;
 }
 
@@ -112,18 +111,109 @@ body{
 	margin-top: 20px;
 }
 
+.title.is-inverted{
+	/* color: var(--color-font-base-inverte); */
+	font-size: var(--font-size-lg);
+}
+
+.u-card{
+	position: relative;
+	background-color: var(--colo-white);
+	padding: 20px;
+	margin: 20px;
+	border-radius: 12px;
+	box-shadow: 2px 8px 15px 10px rgba(0, 0, 0, 0.05), 2px 2px 5px 2px rgba(0, 0, 0, 0.25);
+	max-width: 226px;
+}
+
+.u-card::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 12px;
+	opacity: .2;
+	background-position: calc(100% + 50px) calc(100% + 50px);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.u-card p{
+	color: var(--color-font-base-inverte);
+	font-size: var(--font-size-sm);
+}
+
+.u-card h2,
+.u-card h4,
+.u-card p {
+	z-index: 2;
+}
+
+.u-card.title{
+	text-shadow: -1px -1px 0 rgba(255, 255, 255, .2);
+	white-space: nowrap;
+}
+
+.u-card.js{
+	background: linear-gradient(-45deg, #b7791f 0%, #ecc94b 100%);
+}
+
+.u-card.js::before{
+	background-image: url('../assets/logos/javascript.svg');
+}
+
+.u-card.html-css{
+	background: linear-gradient(-45deg, #dd6b20 0%, #f6ad55 100%);
+}
+
+.u-card.html-css::before{
+	background-image: url('../assets/logos/html.svg');
+}
+
+.u-card.react{
+	background: linear-gradient(-45deg, #3182ce 0%, #63b3ed 100%);
+}
+
+.u-card.react::before{
+	background-image: url('../assets/logos/react.svg');
+}
+
+/* sections hero */
+.hero{
+	background-image: url(../assets/images/photo.png);
+	background-size: 850px;
+	background-position: right 50px;
+	background-repeat: no-repeat;
+	border-bottom: 5px solid var(--color-primary);
+	height: calc(100vh - 3px);
+}
+
+.hero-content{
+	width: 100%;
+}
+
+.hero-content p{
+	color: var(--color-font-base-hightlight);
+	font-size: var(--font-size-md);
+	margin: 20px 0;
+}
+
 @media(max-width: 600px){
 	:root{
 		--font-size-base: 13px
 	}
 	.hero {
 		background: none;
+		height: auto;
 	}
 	.u-button{
 		width: 100%;
 	}
 }
 
+/* section biography*/
 .biography{
 	background-color: var(--color-provincial-pink);
 }
@@ -139,5 +229,29 @@ body{
 @media(max-width: 600px){
 	.biography .container{
 		flex-direction: column;
+	}
+}
+
+/* section expertise */
+.expertise{
+	background-color: var(--color-secundary);
+	padding-top: 80px;
+}
+
+.expertise-item.has-cards{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+@media(max-width: 600px){
+	.u-card .title{
+		font-size: var(--font-size-md);
+	}
+	.u-card .subtitle {
+		font-size: var(--font-size-sm);
+	}
+	.u-card p {
+		font-size: var(--font-size-xs);
 	}
 }
