@@ -112,8 +112,13 @@ p{
 }
 
 .title.is-inverted{
-	/* color: var(--color-font-base-inverte); */
+	color: var(--color-font-base-inverte);
 	font-size: var(--font-size-lg);
+}
+
+p.is-inverted{
+	color: var(--color-font-base-inverte);
+	opacity: .8;
 }
 
 .u-card{
@@ -151,9 +156,10 @@ p{
 	z-index: 2;
 }
 
-.u-card.title{
+.u-card .title{
 	text-shadow: -1px -1px 0 rgba(255, 255, 255, .2);
 	white-space: nowrap;
+	font-size: var(--font-size-lg);
 }
 
 .u-card.js{
@@ -238,10 +244,18 @@ p{
 	padding-top: 80px;
 }
 
+.expertise-item{
+	margin-bottom: 20px;
+}
+
 .expertise-item.has-cards{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	margin-bottom: 50px;
+}
+.expertise-item.title{
+	color: var(--color-font-base-inverte);
 }
 
 @media(max-width: 600px){
