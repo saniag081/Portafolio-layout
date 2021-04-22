@@ -66,6 +66,7 @@ p{
 	font-weight: 600;
 	max-width: 300px;
 	width: 100%;
+	text-decoration: none;
 }
 
 .u-button.is-block{
@@ -214,6 +215,7 @@ p.is-inverted{
 	color: var(--color-font-base-hightlight);
 	font-size: var(--font-size-md);
 	margin: 20px 0;
+	margin-bottom: 40px;
 }
 
 @media(max-width: 600px){
@@ -329,6 +331,7 @@ input{
 	padding: 10px 20px;
 	border: 2px solid var(--color-primary);
 	font-size: var(--font-size-sm);
+	width: 100%;
 }
 
 textarea:focus,
